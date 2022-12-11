@@ -1,0 +1,25 @@
+name: Publish 🚀
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+  
+jobs:
+  publish:
+    run-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup .NET
+        uese: actions/setup-dotnet@v3
+        with: 
+          dotnet-version: '7.0.x'
+
+      - name: Restore
+        run: dotnet restore ./TodoApis.sln
+        
+      - name: Build
+        run: dotnet build ./TodoApis.sln --confugyration Release --no-restore
