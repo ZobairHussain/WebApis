@@ -22,4 +22,5 @@ jobs:
         run: dotnet restore ./TodoApis.sln
         
       - name: Build
-        run: dotnet build ./TodoApis.sln --confugyration Release --no-restore
+        run: dotnet build ./TodoApis.sln --configuration Release --no-restore
+        
